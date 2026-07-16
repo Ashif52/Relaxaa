@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relaxaa — Premium Home Textiles & Designer Shirts</title>
+    <meta name="description"
+        content="Shop premium bamboo bedsheets, Camasi designer shirts, and Red Cheeks children's wear. Sustainable luxury woven with care.">
+    <link rel="stylesheet" href="css/styles.css?v=3">
+</head>
+
+<body>
+
+    <!-- ═══ Navigation ═══ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="home.html" class="nav-logo">
+                <img src="assets/logo-full.jpg" alt="Relaxaa"
+                    style="height:36px;width:36px;border-radius:50%;object-fit:cover;">
+                Relaxaa
+            </a>
+            <ul class="nav-links">
+                <li><a href="home.html" class="nav-link active">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="story.html" class="nav-link">Our Story</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-action-btn" id="searchToggle" aria-label="Search">
+                    <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="8" cy="8" r="5"></circle>
+                        <line x1="11.5" y1="11.5" x2="16" y2="16"></line>
+                    </svg>
+                </button>
+                <button class="nav-action-btn" id="cartToggle" aria-label="Cart">
+                    <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 6h12v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"></path>
+                        <path d="M6 6V4a3 3 0 0 1 6 0v2"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="home.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- ═══ Hero with Video Background ═══ -->
+    <section class="hero" id="hero">
+        <div class="hero-video-bg">
+            <video autoplay muted loop playsinline preload="none" id="heroVideo">
+                <source src="assets/hero-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="text-caption" style="color:var(--lavender-light); margin-bottom:1rem;">Home Textiles & Green Power
+            </p>
+            <h1>Woven with Care,<br>Crafted for Dreams</h1>
+            <p>Premium bamboo & cotton textiles that embrace sustainability without compromising on luxury. From
+                bedsheets to shirts — feel the difference.</p>
+            <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                <a href="shop.html" class="btn btn-primary">Shop Collection</a>
+                <a href="story.html" class="btn btn-secondary"
+                    style="color:var(--white); border-color:rgba(255,255,255,0.4);">Our Story</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ═══ Collections ═══ -->
+    <section class="section" id="collections">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="text-caption">Our Collections</p>
+                <h2>Three Worlds of Comfort</h2>
+                <hr class="section-divider">
+                <p>Each collection tells its own story — of softness, style, and sustainable living.</p>
+            </div>
+            <div class="grid reveal" style="grid-template-columns: repeat(3, 1fr); gap: var(--space-lg);">
+                <!-- Bedsheets -->
+                <a href="shop.html?category=bedsheets" class="collection-card">
+                    <img src="bedsheets/slaapwijsheid-nl-miuVm8c557M-unsplash.jpg" alt="Premium Bedsheets">
+                    <div class="collection-card-overlay">
+                        <h3>Bedsheets</h3>
+                        <p>TC-400 cotton & bamboo viscose — luxury you sleep in.</p>
+                        <span class="btn-ghost">Explore →</span>
+                    </div>
+                </a>
+                <!-- Camasi -->
+                <a href="shop.html?category=camasi" class="collection-card">
+                    <img src="shirts/benjamin-r-KF-q_SGqswg-unsplash.jpg" alt="Camasi Designer Shirts">
+                    <div class="collection-card-overlay">
+                        <h3>Camasi</h3>
+                        <p>Linen, cotton satin & designer prints — effortless cool.</p>
+                        <span class="btn-ghost">Explore →</span>
+                    </div>
+                </a>
+                <!-- Red Cheeks -->
+                <a href="shop.html?category=redcheeks" class="collection-card">
+                    <img src="assets/brand-children.jpg" alt="Red Cheeks Children's">
+                    <div class="collection-card-overlay">
+                        <h3>Red Cheeks</h3>
+                        <p>Gentle bamboo comfort for the little dreamers.</p>
+                        <span class="btn-ghost">Explore →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Brand Promise (Split Section) ═══ -->
+    <section class="section" style="background: var(--cream-dark);">
+        <div class="container">
+            <div class="split-section">
+                <div class="split-image reveal-left">
+                    <img src="assets/brand-sustainability.jpg?v=3" alt="Sustainable bamboo textiles">
+                </div>
+                <div class="split-text reveal-right">
+                    <p class="text-caption">Our Promise</p>
+                    <h2>Sustainability<br>is Not a Trend</h2>
+                    <p>Born from the belief that luxury and responsibility can coexist, Relaxaa crafts every thread with
+                        purpose. Our bamboo viscose fabrics are softer than silk, naturally hypoallergenic, and kinder
+                        to the planet.</p>
+                    <div
+                        style="display:flex; justify-content:space-between; gap:var(--space-md); margin-bottom:var(--space-lg); flex-wrap:nowrap; width:100%;">
+                        <div style="white-space:nowrap;">
+                            <div
+                                style="font-family:var(--font-heading); font-size:2.2rem; color:var(--lavender); line-height:1; font-weight:600;">
+                                100%</div>
+                            <div class="text-sm"
+                                style="color:var(--charcoal-light); font-weight:500; margin-top:0.25rem;">Sustainable
+                                Fibers</div>
+                        </div>
+                        <div style="white-space:nowrap;">
+                            <div
+                                style="font-family:var(--font-heading); font-size:2.2rem; color:var(--bamboo-green); line-height:1; font-weight:600; white-space:nowrap;">
+                                TC-400</div>
+                            <div class="text-sm"
+                                style="color:var(--charcoal-light); font-weight:500; margin-top:0.25rem;">Thread Count
+                            </div>
+                        </div>
+                        <div style="white-space:nowrap;">
+                            <div
+                                style="font-family:var(--font-heading); font-size:2.2rem; color:var(--gold); line-height:1; font-weight:600;">
+                                5+</div>
+                            <div class="text-sm"
+                                style="color:var(--charcoal-light); font-weight:500; margin-top:0.25rem;">Countries
+                                Served</div>
+                        </div>
+                    </div>
+                    <a href="story.html" class="btn btn-primary"
+                        style="display:-webkit-inline-box; display:inline-flex; width:100%; text-align:center; box-sizing:border-box;">Read
+                        Our Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Bestsellers ═══ -->
+    <section class="section" id="bestsellers">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="text-caption">Customer Favorites</p>
+                <h2>Bestselling Pieces</h2>
+                <hr class="section-divider">
+            </div>
+            <div class="scroll-row reveal" id="bestsellersRow">
+                <!-- Populated by JS -->
+            </div>
+            <div style="text-align:center; margin-top:var(--space-xl);">
+                <a href="shop.html" class="btn btn-secondary">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Lifestyle Banner ═══ -->
+    <section class="section" style="padding:0;">
+        <div style="position:relative; height:60vh; min-height:400px; overflow:hidden;">
+            <img src="bedsheets/kamalia-khaddar-uC8-q_nVsaE-unsplash.jpg" alt="Cozy lifestyle"
+                style="width:100%;height:100%;object-fit:cover;">
+            <div
+                style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(17,17,17,0.6) 0%, transparent 60%);display:flex;align-items:center;">
+                <div class="container">
+                    <div style="max-width:800px; color:var(--white);" class="reveal-left">
+                        <p class="text-caption" style="color:var(--lavender-light);">The Relaxaa Life</p>
+                        <h2
+                            style="color:var(--white); font-size:clamp(2rem, 4vw, 3.5rem); margin-bottom:var(--space-sm);">
+                            The Stillness Before the Day Begins</h2>
+                        <p style="opacity:0.85; margin-bottom:var(--space-lg);">This is what calm feels like. Wrap
+                            yourself in fabrics that understand rest.</p>
+                        <a href="shop.html" class="btn btn-primary"
+                            style="background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.3);">Shop
+                            Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Instagram Grid ═══ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="text-caption">@relaxaa.official</p>
+                <h2>Follow the Thread</h2>
+                <hr class="section-divider">
+            </div>
+        </div>
+        <div class="instagram-grid reveal-scale">
+            <div class="instagram-item"><img src="shirts/craig-whitehead-lbekri_riMg-unsplash.jpg" alt="Relaxaa"
+                    loading="lazy"></div>
+            <div class="instagram-item"><img src="bedsheets/nilufar-nattaq-OJ3t25nsaHw-unsplash.jpg" alt="Relaxaa"
+                    loading="lazy"></div>
+            <div class="instagram-item"><img src="bedsheets/dithira-hettiarachchi-_q2B-1r6E-M-unsplash.jpg"
+                    alt="Relaxaa" loading="lazy"></div>
+            <div class="instagram-item"><img src="bedsheets/kamalia-khaddar-uC8-q_nVsaE-unsplash.jpg" alt="Relaxaa"
+                    loading="lazy"></div>
+            <div class="instagram-item"><img src="shirts/waldemar-brandt-Db4d6MRIXJc-unsplash.jpg" alt="Relaxaa"
+                    loading="lazy"></div>
+            <div class="instagram-item"><img src="bedsheets/toa-heftiba-BYsTPg84Yok-unsplash.jpg" alt="Relaxaa"
+                    loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="color:var(--white); margin-bottom:var(--space-sm);">
+                        <img src="assets/logo-full.jpg" alt="Relaxaa"
+                            style="height:32px;width:32px;border-radius:50%;object-fit:cover;">
+                        Relaxaa
+                    </div>
+                    <p>Relaxaa Home Textiles & Green Power Pvt. Ltd. — Premium bamboo and cotton textiles woven with
+                        care, crafted for dreams.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html?category=bedsheets">Bedsheets</a></li>
+                        <li><a href="shop.html?category=camasi">Camasi Shirts</a></li>
+                        <li><a href="shop.html?category=redcheeks">Red Cheeks</a></li>
+                        <li><a href="shop.html">All Products</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="story.html">Our Story</a></li>
+                        <li><a href="science.html">Thread & Tech Lab</a></li>
+                        <li><a href="personalize.html">Monogram Studio</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://instagram.com/relaxaa.official" target="_blank">Instagram</a></li>
+                        <li><a href="#" target="_blank">Facebook</a></li>
+                        <li><a href="#" target="_blank">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Relaxaa Home Textiles & Green Power Pvt. Ltd.</span>
+                <div class="footer-socials">
+                    <a href="https://instagram.com/relaxaa.official" target="_blank" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="Facebook">👤</a>
+                    <a href="#" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">💬</a>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" id="cartClose">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <div class="cart-empty-icon">🛒</div>
+                <p>Your cart is empty</p>
+                <a href="shop.html" class="btn btn-primary" style="margin-top:1rem;">Start Shopping</a>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;">Checkout</button>
+        </div>
+    </aside>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        // Populate bestsellers from product data
+        const bestsellers = [
+            { id: 1, name: 'Bamboo Viscose Bedsheet', category: 'Bedsheets', price: 2999, image: 'assets/bedsheets-styled.jpg', badge: 'Bestseller' },
+            { id: 7, name: 'Floral Print Linen Shirt', category: 'Camasi', price: 1899, image: 'assets/camasi-rack.jpg', badge: 'New' },
+            { id: 2, name: 'Geometric Cotton Spread', category: 'Bedsheets', price: 2499, image: 'assets/bedsheets-geometric.jpg' },
+            { id: 8, name: 'Tropical Print Shirt', category: 'Camasi', price: 1699, image: 'assets/camasi-rack-branded.jpg' },
+            { id: 11, name: 'Baby Bamboo Blanket', category: 'Red Cheeks', price: 1299, image: 'assets/brand-children.jpg', badge: 'Popular' },
+            { id: 3, name: 'Christmas Edition Spread', category: 'Bedsheets', price: 3499, image: 'assets/bedsheets-christmas.jpg', badge: 'Limited' },
+        ];
+
+        const row = document.getElementById('bestsellersRow');
+        bestsellers.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.style.width = '280px';
+            card.innerHTML = `
+        <div class="product-card-image">
+          <img src="${p.image}" alt="${p.name}">
+          ${p.badge ? `<span class="product-card-badge">${p.badge}</span>` : ''}
+          <div class="product-card-actions">
+            <button class="product-card-action-btn" onclick="event.stopPropagation(); addToCart({id:${p.id},name:'${p.name}',price:${p.price},image:'${p.image}',category:'${p.category}'})">🛒</button>
+            <button class="product-card-action-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=${p.id}'">👁</button>
+          </div>
+        </div>
+        <div class="product-card-info">
+          <div class="product-card-category">${p.category}</div>
+          <div class="product-card-name">${p.name}</div>
+          <div class="product-card-price">₹${p.price.toLocaleString('en-IN')}</div>
+        </div>
+      `;
+            card.addEventListener('click', () => window.location.href = `product.html?id=${p.id}`);
+            row.appendChild(card);
+        });
+    </script>
+</body>
+
+</html>

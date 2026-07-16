@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product — Relaxaa</title>
+    <meta name="description" content="View product details — Relaxaa premium bamboo and cotton textiles.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="home.html" class="nav-logo">
+                <img src="assets/logo-full.jpg" alt="Relaxaa"
+                    style="height:36px;width:36px;border-radius:50%;object-fit:cover;">
+                Relaxaa
+            </a>
+            <ul class="nav-links">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="story.html" class="nav-link">Our Story</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-action-btn" id="searchToggle" aria-label="Search"
+                    onclick="window.location.href='shop.html'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <button class="nav-action-btn" id="cartToggle" aria-label="Cart">
+                    <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 6h12v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"></path>
+                        <path d="M6 6V4a3 3 0 0 1 6 0v2"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="home.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Product Detail -->
+    <section class="container">
+        <div class="product-detail" id="productDetail">
+            <!-- Left: Gallery -->
+            <div class="product-gallery reveal-left">
+                <div class="product-gallery-main" id="mainImage">
+                    <img src="assets/bedsheets-styled.jpg" alt="Product" id="mainImg">
+                </div>
+                <div class="product-gallery-thumbs" id="thumbs">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Right: Info -->
+            <div class="product-info reveal-right">
+                <div class="breadcrumb" style="justify-content:flex-start;margin-bottom:var(--space-md);">
+                    <a href="home.html">Home</a>
+                    <span class="sep">/</span>
+                    <a href="shop.html">Shop</a>
+                    <span class="sep">/</span>
+                    <span id="productBreadcrumb">Product</span>
+                </div>
+
+                <p class="text-caption" id="productCategory">Bedsheets</p>
+                <h1 id="productName">Bamboo Viscose Bedsheet</h1>
+                <div class="product-price-tag" id="productPrice">₹2,999</div>
+                <p class="product-description" id="productDesc">
+                    Crafted from 100% bamboo viscose with a TC-400 thread count, this bedsheet offers cloud-like
+                    softness and natural temperature regulation. Hypoallergenic, moisture-wicking, and utterly
+                    luxurious.
+                </p>
+
+                <!-- Size Selector -->
+                <div class="size-selector" id="sizeSection">
+                    <label>Size</label>
+                    <div class="size-options" id="sizeOptions">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Quantity -->
+                <div class="qty-selector">
+                    <label>Qty</label>
+                    <div class="qty-controls">
+                        <button class="qty-btn" id="qtyMinus">−</button>
+                        <div class="qty-value" id="qtyValue">1</div>
+                        <button class="qty-btn" id="qtyPlus">+</button>
+                    </div>
+                </div>
+
+                <!-- Add to Cart -->
+                <button class="btn btn-primary add-to-cart-btn" id="addToCartBtn">Add to Cart</button>
+                <button class="btn btn-secondary" style="width:100%;"
+                    onclick="window.open('https://wa.me/919999999999?text=Hi! I\'m interested in this product.','_blank')">Enquire
+                    on WhatsApp</button>
+
+                <!-- Tabs -->
+                <div style="margin-top:var(--space-xl);">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="description">Description</button>
+                        <button class="tab-btn" data-tab="care">Material & Care</button>
+                        <button class="tab-btn" data-tab="reviews">Reviews</button>
+                    </div>
+                    <div class="tab-content active" id="tab-description">
+                        <p id="tabDescText" style="color:var(--charcoal-light);line-height:1.9;">
+                            Our premium bedsheets are woven from the finest bamboo viscose, providing unmatched softness
+                            and breathability. The TC-400 thread count ensures durability while maintaining a
+                            silky-smooth touch against your skin.
+                        </p>
+                    </div>
+                    <div class="tab-content" id="tab-care">
+                        <ul style="color:var(--charcoal-light);line-height:2.2;padding-left:1rem;">
+                            <li>• Machine wash cold on gentle cycle</li>
+                            <li>• Tumble dry low or line dry</li>
+                            <li>• Do not bleach</li>
+                            <li>• Iron on low heat if needed</li>
+                            <li>• Naturally wrinkle-resistant</li>
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="tab-reviews">
+                        <div style="text-align:center;padding:var(--space-xl) 0;color:var(--charcoal-light);">
+                            <p style="font-size:2rem;margin-bottom:0.5rem;">⭐⭐⭐⭐⭐</p>
+                            <p>Loved by our customers</p>
+                            <p class="text-sm" style="margin-top:0.5rem;">Reviews coming soon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="text-caption">You May Also Like</p>
+                <h2>Related Products</h2>
+                <hr class="section-divider">
+            </div>
+            <div class="scroll-row reveal" id="relatedRow">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="color:var(--white);margin-bottom:var(--space-sm);">
+                        <img src="assets/logo-full.jpg" alt="Relaxaa"
+                            style="height:32px;width:32px;border-radius:50%;object-fit:cover;">
+                        Relaxaa
+                    </div>
+                    <p>Premium bamboo and cotton textiles woven with care, crafted for dreams.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html?category=bedsheets">Bedsheets</a></li>
+                        <li><a href="shop.html?category=camasi">Camasi Shirts</a></li>
+                        <li><a href="shop.html?category=redcheeks">Red Cheeks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="story.html">Our Story</a></li>
+                        <li><a href="science.html">Thread & Tech Lab</a></li>
+                        <li><a href="personalize.html">Monogram Studio</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://instagram.com/relaxaa.official" target="_blank">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Relaxaa Home Textiles & Green Power Pvt. Ltd.</span>
+                <div class="footer-socials">
+                    <a href="https://instagram.com/relaxaa.official" target="_blank">📷</a>
+                    <a href="#">👤</a>
+                    <a href="#">💬</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" id="cartClose">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <div class="cart-empty-icon">🛒</div>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;">Checkout</button>
+        </div>
+    </aside>
+
+    <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">💬</a>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/product.js"></script>
+</body>
+
+</html>

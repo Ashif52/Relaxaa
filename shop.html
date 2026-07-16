@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop — Relaxaa Premium Textiles</title>
+    <meta name="description"
+        content="Browse our full collection of premium bamboo bedsheets, Camasi designer shirts, and Red Cheeks children's comfort wear.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation (same as home) -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="home.html" class="nav-logo">
+                <img src="assets/logo-full.jpg" alt="Relaxaa"
+                    style="height:36px;width:36px;border-radius:50%;object-fit:cover;">
+                Relaxaa
+            </a>
+            <ul class="nav-links">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link active">Shop</a></li>
+                <li><a href="story.html" class="nav-link">Our Story</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-action-btn" id="searchToggle" aria-label="Search">
+                    <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="8" cy="8" r="5"></circle>
+                        <line x1="11.5" y1="11.5" x2="16" y2="16"></line>
+                    </svg>
+                </button>
+                <button class="nav-action-btn" id="cartToggle" aria-label="Cart">
+                    <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 6h12v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"></path>
+                        <path d="M6 6V4a3 3 0 0 1 6 0v2"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="home.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <p class="text-caption">Our Collections</p>
+        <h1>Shop</h1>
+        <div class="breadcrumb">
+            <a href="home.html">Home</a>
+            <span class="sep">/</span>
+            <span>Shop</span>
+        </div>
+    </div>
+
+    <!-- Shop Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Filter Bar -->
+            <div class="filter-bar reveal" id="filterBar">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="bedsheets">Bedsheets</button>
+                <button class="filter-btn" data-category="camasi">Camasi Shirts</button>
+                <button class="filter-btn" data-category="redcheeks">Red Cheeks</button>
+            </div>
+
+            <!-- Sort -->
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-lg);"
+                class="reveal">
+                <p id="productCount" class="text-sm" style="color:var(--charcoal-light);">Showing 12 products</p>
+                <select id="sortSelect"
+                    style="padding:0.5rem 1rem;border:1.5px solid var(--cream-dark);border-radius:var(--radius-sm);background:var(--white);font-size:0.8125rem;cursor:pointer;">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest First</option>
+                </select>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="productGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="color:var(--white);margin-bottom:var(--space-sm);">
+                        <img src="assets/logo-full.jpg" alt="Relaxaa"
+                            style="height:32px;width:32px;border-radius:50%;object-fit:cover;">
+                        Relaxaa
+                    </div>
+                    <p>Relaxaa Home Textiles & Green Power Pvt. Ltd. — Premium bamboo and cotton textiles woven with
+                        care, crafted for dreams.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html?category=bedsheets">Bedsheets</a></li>
+                        <li><a href="shop.html?category=camasi">Camasi Shirts</a></li>
+                        <li><a href="shop.html?category=redcheeks">Red Cheeks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="story.html">Our Story</a></li>
+                        <li><a href="science.html">Thread & Tech Lab</a></li>
+                        <li><a href="personalize.html">Monogram Studio</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://instagram.com/relaxaa.official" target="_blank">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Relaxaa Home Textiles & Green Power Pvt. Ltd.</span>
+                <div class="footer-socials">
+                    <a href="https://instagram.com/relaxaa.official" target="_blank" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="Facebook">👤</a>
+                    <a href="#" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" id="cartClose">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <div class="cart-empty-icon">🛒</div>
+                <p>Your cart is empty</p>
+                <a href="shop.html" class="btn btn-primary" style="margin-top:1rem;">Start Shopping</a>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;">Checkout</button>
+        </div>
+    </aside>
+
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quickViewModal">
+        <button class="modal-close" id="modalClose">✕</button>
+        <div class="modal">
+            <div class="modal-image" id="modalImage">
+                <img src="" alt="">
+            </div>
+            <div class="modal-content" id="modalContent">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">💬</a>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+
+</html>

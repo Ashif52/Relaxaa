@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Relaxaa</title>
+    <meta name="description"
+        content="Get in touch with Relaxaa Home Textiles. Visit our showroom or send us a message.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="home.html" class="nav-logo">
+                <img src="assets/logo-full.jpg" alt="Relaxaa"
+                    style="height:36px;width:36px;border-radius:50%;object-fit:cover;">
+                Relaxaa
+            </a>
+            <ul class="nav-links">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="story.html" class="nav-link">Our Story</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-action-btn" id="searchToggle" aria-label="Search"
+                    onclick="window.location.href='shop.html'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <button class="nav-action-btn" id="cartToggle" aria-label="Cart">
+                    <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 6h12v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"></path>
+                        <path d="M6 6V4a3 3 0 0 1 6 0v2"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="home.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <p class="text-caption">Get in Touch</p>
+        <h1>Contact Us</h1>
+        <div class="breadcrumb">
+            <a href="home.html">Home</a>
+            <span class="sep">/</span>
+            <span>Contact</span>
+        </div>
+    </div>
+
+    <!-- Contact Content -->
+    <section class="section">
+        <div class="container">
+            <div class="split-section">
+                <!-- Contact Form -->
+                <div class="reveal-left">
+                    <h2 style="margin-bottom:var(--space-sm);">Send Us a Message</h2>
+                    <p style="color:var(--charcoal-light);margin-bottom:var(--space-lg);">Have a question about our
+                        products, wholesale inquiries, or just want to say hello? We'd love to hear from you.</p>
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md);">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" placeholder="Your first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" placeholder="Your last name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject"
+                                style="width:100%;padding:0.875rem var(--space-sm);border:1.5px solid var(--cream-dark);border-radius:var(--radius-sm);background:var(--white);font-size:0.9375rem;cursor:pointer;">
+                                <option value="">Select a subject</option>
+                                <option value="product">Product Inquiry</option>
+                                <option value="wholesale">Wholesale / Bulk Orders</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Tell us how we can help..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+                    </form>
+                    <div id="formSuccess" style="display:none;text-align:center;padding:var(--space-xl) 0;">
+                        <div style="font-size:3rem;margin-bottom:var(--space-sm);">✨</div>
+                        <h3>Message Sent!</h3>
+                        <p style="color:var(--charcoal-light);margin-top:0.5rem;">We'll get back to you within 24 hours.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="reveal-right">
+                    <div class="glass-panel" style="padding:var(--space-xl);margin-bottom:var(--space-lg);">
+                        <h3 style="margin-bottom:var(--space-lg);">Visit Our Showroom</h3>
+                        <div style="margin-bottom:var(--space-lg);">
+                            <p class="text-caption" style="margin-bottom:0.5rem;">📍 Address</p>
+                            <p style="color:var(--charcoal-light);">Relaxaa Home Textiles & Green Power Pvt.
+                                Ltd.<br>India</p>
+                        </div>
+                        <div style="margin-bottom:var(--space-lg);">
+                            <p class="text-caption" style="margin-bottom:0.5rem;">🕐 Hours</p>
+                            <p style="color:var(--charcoal-light);">Monday — Saturday: 10:00 AM — 7:00 PM<br>Sunday:
+                                Closed</p>
+                        </div>
+                        <div style="margin-bottom:var(--space-lg);">
+                            <p class="text-caption" style="margin-bottom:0.5rem;">📧 Email</p>
+                            <a href="mailto:info@relaxaa.com" style="color:var(--lavender);">info@relaxaa.com</a>
+                        </div>
+                        <div>
+                            <p class="text-caption" style="margin-bottom:0.5rem;">📱 WhatsApp</p>
+                            <a href="https://wa.me/919999999999" style="color:var(--lavender);">+91 99999 99999</a>
+                        </div>
+                    </div>
+
+                    <!-- Showroom Image -->
+                    <div style="border-radius:var(--radius-lg);overflow:hidden;">
+                        <img src="assets/showroom.jpg" alt="Relaxaa Showroom"
+                            style="width:100%;height:300px;object-fit:cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="color:var(--white);margin-bottom:var(--space-sm);">
+                        <img src="assets/logo-full.jpg" alt="Relaxaa"
+                            style="height:32px;width:32px;border-radius:50%;object-fit:cover;">
+                        Relaxaa
+                    </div>
+                    <p>Premium bamboo and cotton textiles woven with care, crafted for dreams.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html?category=bedsheets">Bedsheets</a></li>
+                        <li><a href="shop.html?category=camasi">Camasi Shirts</a></li>
+                        <li><a href="shop.html?category=redcheeks">Red Cheeks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="story.html">Our Story</a></li>
+                        <li><a href="science.html">Thread & Tech Lab</a></li>
+                        <li><a href="personalize.html">Monogram Studio</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://instagram.com/relaxaa.official" target="_blank">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Relaxaa Home Textiles & Green Power Pvt. Ltd.</span>
+                <div class="footer-socials">
+                    <a href="https://instagram.com/relaxaa.official" target="_blank">📷</a>
+                    <a href="#">👤</a>
+                    <a href="#">💬</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3><button class="cart-close" id="cartClose">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <div class="cart-empty-icon">🛒</div>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total"><span>Total</span><span id="cartTotal">₹0</span></div><button
+                class="btn btn-primary" style="width:100%;">Checkout</button>
+        </div>
+    </aside>
+
+    <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank">💬</a>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('formSuccess');
+            form.style.display = 'none';
+            success.style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

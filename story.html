@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story — Relaxaa</title>
+    <meta name="description"
+        content="The Relaxaa story — from bamboo groves to your bedroom. Learn about our commitment to sustainable luxury textiles.">
+    <link rel="stylesheet" href="css/styles.css?v=3">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="home.html" class="nav-logo">
+                <img src="assets/logo-full.jpg" alt="Relaxaa"
+                    style="height:36px;width:36px;border-radius:50%;object-fit:cover;">
+                Relaxaa
+            </a>
+            <ul class="nav-links">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="story.html" class="nav-link active">Our Story</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-action-btn" id="searchToggle" aria-label="Search">
+                    <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="8" cy="8" r="5"></circle>
+                        <line x1="11.5" y1="11.5" x2="16" y2="16"></line>
+                    </svg>
+                </button>
+                <button class="nav-action-btn" id="cartToggle" aria-label="Cart">
+                    <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 6h12v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"></path>
+                        <path d="M6 6V4a3 3 0 0 1 6 0v2"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="home.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Hero Banner -->
+    <section class="hero" style="height:70vh;min-height:400px;">
+        <img src="assets/bamboo-forest.jpg" alt="Bamboo forest"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="text-caption" style="color:var(--lavender-light);margin-bottom:1rem;">Our Story</p>
+            <h1>From Bamboo Groves<br>to Your Dreams</h1>
+            <p>A journey of sustainable craftsmanship, woven with purpose.</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="section">
+        <div class="container">
+            <div class="split-section">
+                <div class="split-text reveal-left">
+                    <p class="text-caption">About Us</p>
+                    <h2>Woven with Legacy</h2>
+                    <p>Welcome to Relaxaa Home Textiles Pvt. Ltd., a distinguished member and proudly operating under
+                        the esteemed Parent Company, which has been a pioneer in the TEXTILE industry since its
+                        establishment in the year 1981. We are proud to carry forward the legacy of excellence and
+                        innovation that defines our parent company.</p>
+                    <p style="color:var(--charcoal-light);margin-top:1rem;">At Relaxaa, we turn houses into homes with
+                        our exquisite range of textiles. Established in 2024, we have been dedicated to enhancing living
+                        spaces with our premium-quality products and exceptional customer service.</p>
+                </div>
+                <div class="split-image reveal-right">
+                    <img src="assets/brand-sustainability.jpg?v=3" alt="Sustainable craftsmanship">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evolution Section -->
+    <section class="section" style="background:var(--cream-dark);">
+        <div class="container">
+            <div class="split-section reverse">
+                <div class="split-image reveal-left">
+                    <img src="assets/tradefair-japan.jpg" alt="Japan India Trend Fair">
+                </div>
+                <div class="split-text reveal-right">
+                    <p class="text-caption">Our Evolution</p>
+                    <h2>Carrying the Legacy Forward Clarified</h2>
+                    <p>As an integral part of this prestigious lineage, Relaxaa Home Textiles was established to further
+                        these ideals in TEXTILES. We harness the vast expertise and resources of our parent company to
+                        offer innovative solutions and superior service to our clients.</p>
+                    <div style="display:flex;gap:var(--space-lg);margin-top:var(--space-lg);">
+                        <div>
+                            <div style="font-family:var(--font-heading);font-size:2rem;color:var(--lavender);">1981
+                            </div>
+                            <div class="text-sm" style="color:var(--charcoal-light);">Pioneering Textiles</div>
+                        </div>
+                        <div>
+                            <div style="font-family:var(--font-heading);font-size:2rem;color:var(--gold);">2024</div>
+                            <div class="text-sm" style="color:var(--charcoal-light);">Relaxaa Founded</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Bamboo Section -->
+    <section class="section" id="sustainability">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="text-caption">Sustainability</p>
+                <h2>Why Bamboo?</h2>
+                <hr class="section-divider">
+            </div>
+            <div class="grid reveal" style="grid-template-columns:repeat(3,1fr);gap:var(--space-xl);text-align:center;">
+                <div>
+                    <div style="font-size:3rem;margin-bottom:var(--space-sm);">🌱</div>
+                    <h4 style="margin-bottom:0.75rem;">Grows Without Pesticides</h4>
+                    <p class="text-sm" style="color:var(--charcoal-light);">Bamboo is naturally pest-resistant and grows
+                        up to 3 feet per day without chemicals or excessive water.</p>
+                </div>
+                <div>
+                    <div style="font-size:3rem;margin-bottom:var(--space-sm);">💧</div>
+                    <h4 style="margin-bottom:0.75rem;">Moisture-Wicking</h4>
+                    <p class="text-sm" style="color:var(--charcoal-light);">Bamboo fabric absorbs moisture 3x faster
+                        than cotton, keeping you cool and dry through the night.</p>
+                </div>
+                <div>
+                    <div style="font-size:3rem;margin-bottom:var(--space-sm);">🛡️</div>
+                    <h4 style="margin-bottom:0.75rem;">Hypoallergenic</h4>
+                    <p class="text-sm" style="color:var(--charcoal-light);">Naturally antibacterial and hypoallergenic —
+                        ideal for sensitive skin, children, and allergy sufferers.</p>
+                </div>
+                <div>
+                    <div style="font-size:3rem;margin-bottom:var(--space-sm);">🌍</div>
+                    <h4 style="margin-bottom:0.75rem;">Carbon Negative</h4>
+                    <p class="text-sm" style="color:var(--charcoal-light);">Bamboo absorbs 35% more CO₂ than equivalent
+                        trees, making it one of the most eco-friendly textile sources.</p>
+                </div>
+                <div>
+                    <div style="font-size:3rem;margin-bottom:var(--space-sm);">☁️</div>
+                    <h4 style="margin-bottom:0.75rem;">Incredibly Soft</h4>
+                    <p class="text-sm" style="color:var(--charcoal-light);">Bamboo viscose rivals cashmere in softness.
+                        Our TC-400 weave creates a luxuriously silky drape.</p>
+                </div>
+                <div>
+                    <div style="font-size:3rem;margin-bottom:var(--space-sm);">♻️</div>
+                    <h4 style="margin-bottom:0.75rem;">Biodegradable</h4>
+                    <p class="text-sm" style="color:var(--charcoal-light);">At the end of its life, bamboo fabric
+                        returns to the earth naturally — zero landfill guilt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section" style="background:var(--cream-dark);">
+        <div class="container text-center reveal" style="max-width:800px; margin:0 auto;">
+            <p class="text-caption" style="color:var(--lavender); margin-bottom:var(--space-xs);">Our Mission</p>
+            <h2 style="margin-bottom:var(--space-md); font-family:var(--font-heading);">Elevating Living Spaces</h2>
+            <p style="font-size:1.1rem; line-height:1.8; color:var(--charcoal-light); margin-bottom:var(--space-md);">
+                Our mission is to provide the finest quality textiles that enrich lives and spaces with comfort,
+                elegance, and sustainability. We are committed to blending timeless craftsmanship with innovative design
+                to create products that inspire and endure.
+            </p>
+            <p style="font-size:1.1rem; line-height:1.8; color:var(--charcoal-light);">
+                Through ethical practices and a dedication to customer satisfaction, we aim to elevate the standard of
+                living while preserving the beauty of our planet for generations to come.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="text-align:center;">
+        <div class="container reveal">
+            <h2 style="margin-bottom:var(--space-sm);">Experience the Difference</h2>
+            <p style="color:var(--charcoal-light);max-width:500px;margin:0 auto var(--space-lg);">Feel the luxury of
+                bamboo against your skin. Shop our collections and discover what sustainable comfort truly means.</p>
+            <a href="shop.html" class="btn btn-primary">Shop All Collections</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="color:var(--white);margin-bottom:var(--space-sm);">
+                        <img src="assets/logo-full.jpg" alt="Relaxaa"
+                            style="height:32px;width:32px;border-radius:50%;object-fit:cover;">
+                        Relaxaa
+                    </div>
+                    <p>Premium bamboo and cotton textiles woven with care, crafted for dreams.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html?category=bedsheets">Bedsheets</a></li>
+                        <li><a href="shop.html?category=camasi">Camasi Shirts</a></li>
+                        <li><a href="shop.html?category=redcheeks">Red Cheeks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="story.html">Our Story</a></li>
+                        <li><a href="science.html">Thread & Tech Lab</a></li>
+                        <li><a href="personalize.html">Monogram Studio</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://instagram.com/relaxaa.official" target="_blank">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Relaxaa Home Textiles & Green Power Pvt. Ltd.</span>
+                <div class="footer-socials">
+                    <a href="https://instagram.com/relaxaa.official" target="_blank">📷</a>
+                    <a href="#">👤</a>
+                    <a href="#">💬</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3><button class="cart-close" id="cartClose">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <div class="cart-empty-icon">🛒</div>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total"><span>Total</span><span id="cartTotal">₹0</span></div><button
+                class="btn btn-primary" style="width:100%;">Checkout</button>
+        </div>
+    </aside>
+
+    <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank">💬</a>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
