@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thread & Tech Lab — Relaxaa</title>
+    <meta name="description"
+        content="Relaxaa Thread & Tech Lab — explore the microscopic science and ecological technology behind our cooling bamboo textiles.">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Lab Specific Styles */
+        .lab-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        @media (max-width: 992px) {
+            .lab-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+        }
+
+        /* Magnification View */
+        .micro-scope-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            max-width: 450px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 8px solid var(--white);
+            box-shadow: var(--shadow-lg), 0 0 0 2px var(--cream-dark);
+            overflow: hidden;
+            background: #0d0d0d;
+        }
+
+        .micro-view {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--duration-slow) var(--ease-smooth);
+            will-change: transform;
+            opacity: 0.85;
+        }
+
+        .micro-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(155, 126, 200, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(155, 126, 200, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .scope-ui-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: var(--space-md);
+            pointer-events: none;
+            z-index: 3;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--lavender-light);
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .scanner-bar {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--lavender-light), transparent);
+            box-shadow: 0 0 8px var(--lavender);
+            animation: scan 4s linear infinite;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% {
+                top: 0%;
+            }
+
+            50% {
+                top: 100%;
+            }
+
+            100% {
+                top: 0%;
+            }
+        }
+
+        /* Range Slider Styling */
+        .slider-control-card {
+            background: var(--white);
+            border: 1px solid var(--cream-dark);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lab-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--cream-dark);
+            outline: none;
+            margin: var(--space-md) 0;
+        }
+
+        .lab-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--lavender);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.1s ease;
+        }
+
+        .lab-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        /* Thermal Simulator */
+        .thermal-comparison {
+            display: flex;
+            gap: var(--space-xl);
+            justify-content: center;
+            margin-top: var(--space-lg);
+        }
+
+        @media (max-width: 576px) {
+            .thermal-comparison {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .thermal-card {
+            width: 100%;
+            max-width: 220px;
+            background: #111111;
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            text-align: center;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .thermal-preview-box {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            border-radius: var(--radius-sm);
+            margin: var(--space-md) auto;
+            overflow: hidden;
+            background: #050505;
+        }
+
+        .heat-map {
+            width: 100%;
+            height: 100%;
+            transition: background var(--duration-normal) var(--ease-out);
+        }
+
+        /* Cotton Heat Profile - warm gradients */
+        .cotton-heat {
+            background: radial-gradient(circle, #ff2c00 10%, #d45f00 45%, #180c00 90%);
+        }
+
+        /* Bamboo Heat Profile - cool gradients */
+        .bamboo-heat {
+            background: radial-gradient(circle, #00d2ff 5%, #00774a 35%, #05160c 85%);
+        }
+
+        .sensor-tag {
+            position: absolute;
+            bottom: var(--space-sm);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.6875rem;
+            font-family: monospace;
+            letter-spacing: 0.1em;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="home.html" class="nav-logo">
+                <img src="assets/logo-full.jpg" alt="Relaxaa">
+                Relaxaa
+            </a>
+            <ul class="nav-links">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="story.html" class="nav-link">Our Story</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-action-btn" id="searchToggle" aria-label="Search"
+                    onclick="window.location.href='shop.html'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <button class="nav-action-btn" id="cartToggle" aria-label="Cart">
+                    <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 6h12v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"></path>
+                        <path d="M6 6V4a3 3 0 0 1 6 0v2"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="home.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <p class="text-caption">Innovation & Science</p>
+        <h1>Thread & Tech Lab</h1>
+        <div class="breadcrumb">
+            <a href="home.html">Home</a>
+            <span class="sep">/</span>
+            <span>Thread & Tech Lab</span>
+        </div>
+    </div>
+
+    <!-- Microscopic Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="text-caption">Microscopic Science</p>
+                <h2>Organic Fiber Magnifier</h2>
+                <hr class="section-divider">
+                <p style="max-width: 600px; margin: 0 auto;">Interact with our tactile high-resolution lens. Slide the
+                    magnification dial below to zoom into our custom weave and analyze how bamboo capillaries
+                    ventilation functions at a microscopic scale.</p>
+            </div>
+
+            <div class="lab-container">
+                <!-- Left: Interactive Scope -->
+                <div class="reveal-left">
+                    <div class="micro-scope-wrapper">
+                        <div class="micro-grid"></div>
+                        <div class="scanner-bar" id="scannerBar"></div>
+                        <img src="assets/brand-sustainability.jpg" alt="Magnified Bamboo Viscose" class="micro-view"
+                            id="microView">
+                        <div class="scope-ui-overlay">
+                            <span id="scopeCoords">MAG_LENS: SCAN_ACTIVE</span>
+                            <span id="scopeMag" style="text-align: right;">ZOOM: 1.0X</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Information Controls -->
+                <div class="reveal-right">
+                    <div class="slider-control-card">
+                        <h3 style="margin-bottom:var(--space-sm);">Magnification Control</h3>
+                        <p class="text-sm" style="color:var(--charcoal-light)">Drag the slider below from standard
+                            organic thread structure down to view high-ventilation pores.</p>
+
+                        <div style="margin:var(--space-xl) 0;">
+                            <div
+                                style="display:flex;justify-content:space-between;font-family:var(--font-heading);font-weight:600;font-size:1rem;color:var(--charcoal);flex-wrap:wrap;gap:0.25rem;">
+                                <span>Thread (1x)</span>
+                                <span style="color:var(--lavender);">Cell Pores (500x)</span>
+                            </div>
+                            <input type="range" class="lab-slider" id="zoomSlider" min="1" max="500" value="1">
+                        </div>
+
+                        <div id="zoomInfoBox" class="glass-panel"
+                            style="padding:var(--space-lg);border-color:var(--lavender-light);min-height:140px;">
+                            <h4 id="zoomTitle" style="color:var(--lavender);margin-bottom:var(--space-xs);">1x Standard
+                                Surface</h4>
+                            <p id="zoomDesc" class="text-sm" style="color:var(--charcoal-light);line-height:1.7;">You
+                                are viewing the outer linen weaves. The organic fiber arrangement produces standard
+                                high-end sheen and soft exterior texturing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Fiber Comparison Slider Section ═══ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="text-caption">Structural Density</p>
+                <h2>Weave Comparison</h2>
+                <hr class="section-divider">
+                <p style="max-width: 600px; margin: 0 auto;">Drag the slider handle to inspect the difference between standard cotton satin and Relaxaa's high-ventilation bamboo weave.</p>
+            </div>
+
+            <div class="image-slider-container reveal-scale">
+                <!-- Before: Cotton Satin -->
+                <div class="image-slider-before">
+                    <img src="bedsheets/nilufar-nattaq-OJ3t25nsaHw-unsplash.jpg" alt="Standard Cotton Satin Weave">
+                    <div class="image-slider-label before-label">Standard Cotton</div>
+                </div>
+                <!-- After: Bamboo Viscose -->
+                <div class="image-slider-after">
+                    <img src="bedsheets/slaapwijsheid-nl-miuVm8c557M-unsplash.jpg" alt="Relaxaa Premium Bamboo Weave">
+                    <div class="image-slider-label after-label">Relaxaa Bamboo</div>
+                </div>
+                <!-- Interactive Handle -->
+                <div class="image-slider-handle">
+                    <div class="image-slider-button">↔</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cooling Temperature Section -->
+    <section class="section" style="background-color: var(--cream-dark);">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="text-caption">Thermodynamics</p>
+                <h2>Cooling Ventilation Simulator</h2>
+                <hr class="section-divider">
+                <p style="max-width: 600px; margin: 0 auto;">Simulate seasonal temperature changes. Drag the
+                    environmental thermometer slider to observe how bamboo releases heat rapidly compared to dense
+                    cotton fibers.</p>
+            </div>
+
+            <div class="lab-container">
+                <!-- Left: Temperature Controls -->
+                <div class="reveal-left">
+                    <div class="slider-control-card">
+                        <h3 style="margin-bottom:var(--space-sm);">Ambient Thermometer</h3>
+                        <p class="text-sm" style="color:var(--charcoal-light)">Select the ambient room temperature to
+                            trigger heat dispersion sensors.</p>
+
+                        <div style="margin:var(--space-xl) 0;">
+                            <div
+                                style="display:flex;justify-content:space-between;font-family:monospace;font-size:0.8125rem;color:var(--charcoal);flex-wrap:wrap;gap:0.25rem;">
+                                <span>15°C (Cool)</span>
+                                <span style="color:red;font-weight:600;" id="tempIndicator">Room: 24°C</span>
+                                <span>35°C (Warm)</span>
+                            </div>
+                            <input type="range" class="lab-slider" id="tempSlider" min="15" max="35" value="24"
+                                style="background: linear-gradient(90deg, #00bbff, #ff8c00, #ff1a00);">
+                        </div>
+
+                        <div class="glass-panel" style="padding:var(--space-lg);border-color:var(--bamboo-green);">
+                            <h4 style="color:var(--bamboo-dark);margin-bottom:0.25rem;">Capillary Ventilation Advantage
+                            </h4>
+                            <p class="text-sm" style="color:var(--charcoal-light);line-height:1.7;">Relaxaa bamboo
+                                viscose features high-density molecular loops that carry body sweat and hot air away
+                                from the skin surface, dropping contact temps by up to 2-3°C under active heat loading.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Heat Maps -->
+                <div class="reveal-right">
+                    <div class="thermal-comparison">
+                        <!-- Cotton -->
+                        <div class="thermal-card">
+                            <h4 style="font-weight: 500;">Standard Cotton</h4>
+                            <div class="thermal-preview-box">
+                                <div class="heat-map cotton-heat" id="cottonHeat"></div>
+                                <span class="sensor-tag" id="cottonTemp">SENS: 35.8°C</span>
+                            </div>
+                            <p class="text-xs" style="color:rgba(255,255,255,0.6);">Traps warmth within grid locks.</p>
+                        </div>
+
+                        <!-- Bamboo -->
+                        <div class="thermal-card" style="border-color:var(--bamboo-green);">
+                            <h4 style="font-weight: 500; color:var(--bamboo-green);">Relaxaa Bamboo</h4>
+                            <div class="thermal-preview-box">
+                                <div class="heat-map bamboo-heat" id="bambooHeat"></div>
+                                <span class="sensor-tag" id="bambooTemp" style="color:var(--bamboo-green);">SENS:
+                                    33.2°C</span>
+                            </div>
+                            <p class="text-xs" style="color:rgba(255,255,255,0.6);">Diffuses heat through capillaries.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="color:var(--white);margin-bottom:var(--space-sm);">
+                        <img src="assets/logo-full.jpg" alt="Relaxaa"
+                            style="height:32px;width:32px;border-radius:50%;object-fit:cover;">
+                        Relaxaa
+                    </div>
+                    <p>Premium bamboo and cotton textiles woven with care, crafted for dreams.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html?category=bedsheets">Bedsheets</a></li>
+                        <li><a href="shop.html?category=camasi">Camasi Shirts</a></li>
+                        <li><a href="shop.html?category=redcheeks">Red Cheeks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="story.html">Our Story</a></li>
+                        <li><a href="science.html">Thread & Tech Lab</a></li>
+                        <li><a href="personalize.html">Monogram Studio</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.instagram.com/relaxaa.in?igsh=Ym04Z2toc3hxOWJ6" target="_blank">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Trust Badges Strip -->
+            <div class="trust-badge-strip">
+                <div class="trust-badge-item">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    Secure Checkout
+                </div>
+                <div class="trust-badge-item">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    Eco-Friendly Fibers
+                </div>
+                <div class="trust-badge-item">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    24/7 Premium Support
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2025 Relaxaa Home Textiles & Green Power Pvt. Ltd.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3><button class="cart-close" id="cartClose">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <div class="cart-empty-icon">🛒</div>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total"><span>Total</span><span id="cartTotal">₹0</span></div><button
+                class="btn btn-primary" style="width:100%;">Checkout</button>
+        </div>
+    </aside>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/science.js"></script>
+</body>
+
+</html>
